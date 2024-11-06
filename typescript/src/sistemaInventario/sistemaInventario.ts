@@ -16,13 +16,13 @@ type Producto = {
 // Array para almacenar el inventario de productos
 let inventario: Producto[] = [];
 
-const agregarProducto = (nombre: string, precio: number, categoria: CategoriaProducto): void => {
+const agregarProducto=(nombre: string, precio: number, categoria: CategoriaProducto): void => {
     const nuevoProducto: Producto = { nombre, precio, categoria }
     inventario.push(nuevoProducto)
     console.log(`Producto agregado: ${nombre}, Precio: $${precio}, Categoria: ${categoria}`);
 }
 
-const listaProductos = (): void => {
+const listarProductos = (): void => {
     console.log("Inventario de productos: ");
     inventario.forEach(producto => {
         console.log(`- ${producto.nombre} | Precio: $${producto.precio} | Categoria: ${producto.categoria}`);
@@ -35,4 +35,18 @@ const filtrarPorCategoria = (categoria: CategoriaProducto): void =>{
     .filter(producto => producto.categoria === categoria)
     .forEach(producto => console.log(`- ${producto.nombre} | Precio: $${producto.precio}`))
 }
+
+const eliminarProducto = (nombre: string) =>{
+    inventario = inventario.filter(producto => producto.nombre !== nombre);
+    console.log(`Producto ${nombre} eliminado del inventario`);
+}
+
+agregarProducto("Smartphone", 500, CategoriaProducto.Electronica) //agregamos un producto de electronica
+agregarProducto("Camiseta", 200, CategoriaProducto.Ropa)
+agregarProducto("Pan", 30, CategoriaProducto.Alimentos)
+
+listarProductos();
+filtrarPorCategoria(CategoriaProducto.Ropa)
+eliminarProducto("Smartphone");
+listarProductos();
 
