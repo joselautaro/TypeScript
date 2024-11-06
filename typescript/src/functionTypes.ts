@@ -1,10 +1,10 @@
-function suma (a: number, b: number): number{
-    return a+ b
-}
+// function suma (a: number, b: number): number{
+//     return a+ b
+// }
 // Nos daria error
 // console.log(suma(5, "3"));
 // Manera correcta
-console.log(suma(5, 3));
+// console.log(suma(5, 3));
 
 // ___________________________________________________
 
@@ -31,13 +31,15 @@ console.log(suma(5, 3));
 
 // _____________________________________________________
 
-type Operacion = (x: number, y: number) => number
+// type Operacion = (x: number, y: number) => number
 
-const aplicarOperacion = ( x: number, y: number, Operacion: (a: number, b: number) => number): number =>{
-    return Operacion(x, y)
-}
+// const aplicarOperacion = ( x: number, y: number, Operacion: (a: number, b: number) => number): number =>{
+//     return Operacion(x, y)
+// }
 
-const resultado = aplicarOperacion(6, 3, (a, b) => a - b);
-console.log(resultado);
+// const resultado = aplicarOperacion(6, 3, (a, b) => a - b);
+// console.log(resultado);
+
+
 
 
