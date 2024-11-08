@@ -108,6 +108,7 @@ function iniciarInventario() {
         rl.question('Ingrese el nombre del producto: ', (producto) => {
             if (tipoOperacion === TipoOperacion.BORRAR) {
                 console.log(gestionarInventario(tipoOperacion, producto));
+                mostrarHistorial();
             }
             else if (tipoOperacion === TipoOperacion.ACTUALIZAR) {
                 rl.question('¿Deseas sumar, restar o reemplazar el total de la cantidad? Digite alguna de las siguientes opciones (sumar/restar/total):', (modo) => {

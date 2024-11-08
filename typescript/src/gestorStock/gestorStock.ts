@@ -78,8 +78,7 @@ const rl = readline.createInterface({
 })
 
 function iniciarInventario(){
-    // pregunta al usuario que tipo de operacion desea realizar
-    rl.question('Seleccione la operacion (1 = Agregar, 2 = Actualizar, 3 = Borrar): ', (tipo) =>{
+    rl.question('Seleccione la operaciòn (1 = Agregar, 2 = Actualizar, 3 = Borrar: ', (tipo) =>{
         let tipoOperacion: TipoOperacion | undefined;
 
         switch(tipo){
@@ -92,27 +91,49 @@ function iniciarInventario(){
             case '3':
                 tipoOperacion = TipoOperacion.BORRAR;
                 break;
-            default:
-                console.log("Operacion no valida. Intentelo de nuevo.");
+                default:
+                console.log("Operacion no valida. Intèntelo de nuevo");
                 return iniciarInventario();
         }
         rl.question('Ingrese el nombre del producto: ', (producto) =>{
             if(tipoOperacion === TipoOperacion.BORRAR){
                 console.log(gestionarInventario(tipoOperacion, producto));
-                // mostrarHistorial()
+                mostrarHistorial()
             }else if(tipoOperacion === TipoOperacion.ACTUALIZAR){
-                rl.question('¿Desea sumar, restar o reemplazar el total de la cantidad? (sumar/restar/total):', (modo) =>{
+                rl.question('¿Deseas sumar, restar o reemplazar el total de la cantidad? Digite alguna de las siguientes opciones (sumar/restar/total):', (modo) =>{
                     const modoOperacion = modo.toLowerCase() as 'sumar' | 'restar' | 'total';
                     rl.question('Ingrese la cantidad: ', (cantidadStr) =>{
-                        const cantidad = Number(cantidadStr);
+                        const cantidad = Number(cantidadStr)
                         console.log(gestionarInventario(tipoOperacion, producto, cantidad, modoOperacion));
-                        // mostrarHistorial()
+                        mostrarHistorial()
                     })
-                }
-            )}
+                })
+            }else{
+                rl.question('Ingrese la cantidad a agregar: ', (cantidadStr) =>{
+                    const cantidad = Number(cantidadStr)
+                    console.log(gestionarInventario(tipoOperacion, producto, cantidad));
+                    mostrarHistorial()
+                })
+            }
         })
+    })
+}
 
-    }
-)}
+function mostrarHistorial(){
+    console.log("\nHistorial de operaciones");
+    historialOperaciones.forEach((op) => console.log(op))
+
+    rl.question('\n¿Desea realizar otra operacion? (si/no):', (respuesta) =>{
+        if(respuesta.toLowerCase() === 'si' || respuesta.toLowerCase() === 'si'){
+            iniciarInventario();
+        }else{
+            console.log("Gracias por usar el gestor de inventario.");
+            rl.close()
+        }
+    })
+}
+
+iniciarInventario()
 
 
+// 
