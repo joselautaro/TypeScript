@@ -7,7 +7,7 @@ import {obligatorio} from '../utils/validadores';
 // Definimos la clase tarea que va representar una tarea individual en la app
 export class Tarea{
     // usamos el decorador '@obligatorio' para asegurar que el titulo sea siempre proporcionado
-    @obligatorio
+    // @obligatorio
     titulo: string;
 
     // Definimos la propiedad 'descripcion' que no es obligatoria

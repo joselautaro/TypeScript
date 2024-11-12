@@ -20,7 +20,7 @@ export namespace TareaService{
         return tareas.filter(tarea => tarea.estado === estado)
     }
 
-    export function CambiarEstado(titulo: string, nuevoEstado: EstadoTarea){
+    export function cambiarEstado(titulo: string, nuevoEstado: EstadoTarea){
         const tarea = tareas.find(t => t.titulo === titulo)
         if(tarea){
             tarea.estado = nuevoEstado;

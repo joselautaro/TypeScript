@@ -1,0 +1,1 @@
+{"version":3,"file":"tarea.js","sourceRoot":"","sources":["../../../src/gestorDeTareas/models/tarea.ts"],"names":[],"mappings":";;;AACA,uCAAwC;AAMxC,MAAa,KAAK;IAWd,YAAY,MAAc,EAAE,cAAsB,EAAE,EAAE,SAAsB,qBAAW,CAAC,SAAS;QAC7F,IAAI,CAAC,MAAM,GAAG,MAAM,CAAC;QACrB,IAAI,CAAC,WAAW,GAAG,WAAW,CAAC;QAC/B,IAAI,CAAC,MAAM,GAAG,MAAM,CAAC;IACzB,CAAC;CACJ;AAhBD,sBAgBC"}
